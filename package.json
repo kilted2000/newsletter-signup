@@ -4,6 +4,7 @@
   "description": "email sign up web app",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Richard Whittington",
@@ -11,9 +12,11 @@
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "body-parser": "^1.20.1",
+    "cool-ascii-faces": "^1.3.4",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
     "request": "^2.88.2"
-  }
+  },
+  "keywords": []
 }
