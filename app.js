@@ -4,18 +4,6 @@ const https = require("https");
 const request = require("request");
 const cool = require("cool-ascii-faces");
  const app = express();
-// const cool = require('cool-ascii-faces');
-// const express = require('express');
-// const path = require('path');
-// const PORT = process.env.PORT || 5000;
-
-// express()
-//   .use(express.static(path.join(__dirname, 'public')))
-//   .set('views', path.join(__dirname, 'views'))
-//   .set('view engine', 'ejs')
-//   .get('/', (req, res) => res.render('pages/index'))
-//   .get('/cool', (req, res) => res.send(cool()))
-//   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -43,7 +31,6 @@ const url = 'https://us17.api.mailchimp.com/3.0/lists/7a89b11209';
 
 const options = {
     method: "POST",
-    // auth: "richard1:19fba236b7f2143827e3311eb5a244d6-us17"
     auth: "ref477e9a9fdb37f25324daea1549795e"
 }
 
@@ -67,47 +54,8 @@ request.end();
 app.post("/failure",function(req,res){
     res.redirect("/")
 })
-// const mailchimp = require('@mailchimp/mailchimp_marketing');
 
-// mailchimp.setConfig({
-//   apiKey: "19fba236b7f2143827e3311eb5a244d6-us17",
-//   server: 'us17',
-// });
-
-// async function callPing() {
-//   const response = await mailchimp.ping.get();
-//   console.log(response);
-// }
-
-// callPing();
-
-// const client = require("@mailchimp/mailchimp_marketing");
-
-// client.setConfig({
-//   apiKey: "19fba236b7f2143827e3311eb5a244d6-us17",
-//   server: "us17",
-// });
-
-// const run = async () => {
-//   const response = await client.lists.batchListMembers("7a89b11209", {
-//     members: [{ email_address: subscribingUser.email,
-//         status: "subscribed",
-//         merge_fields: {
-//             FNAME: subscribingUser.firstName,
-//             LNAME: subscribingUser.lastName}],
-//   });
-//   console.log(response);
-// };
-
-// run();
-
-
-// app.listen(process.env.PORT || 3000, function(){
-//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-// })
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-app.listen(port);
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Server is up and running");
+});
 //7a89b11209 audience id
