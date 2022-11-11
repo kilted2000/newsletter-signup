@@ -3,7 +3,8 @@ const bodyParser = require("body-parser");
 const https = require("https");
 const request = require("request");
 const cool = require("cool-ascii-faces");
-const app = express();
+ const app = express();
+
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,10 +32,11 @@ app.post("/", function (req, res) {
 
     const url = 'https://us17.api.mailchimp.com/3.0/lists/7a89b11209';
 
-    const options = {
-        method: "POST",
-        auth: "ref477e9a9fdb37f25324daea1549795e"
-    }
+const options = {
+    method: "POST",
+    // auth: "richard1:19fba236b7f2143827e3311eb5a244d6-us17"
+    auth: "richard119fba236b7f2143827e3311eb5a244d6"
+}
 
     const request = https.request(url, options, function (response) {
         response.on("data", function (data) {
@@ -57,7 +59,8 @@ app.post("/failure", function (req, res) {
     res.redirect("/")
 })
 
-app.listen(process.env.PORT || 3000, function () {
-    console.log("Server is up and running");
-});
+let port = process.env.PORT;
+
+
+app.listen(process.env.PORT || 3000);
 //7a89b11209 audience id
